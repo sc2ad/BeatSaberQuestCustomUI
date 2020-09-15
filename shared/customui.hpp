@@ -1,5 +1,4 @@
-#ifndef CUSTOMUI_DEFINED
-#define CUSTOMUI_DEFINED
+#pragma once
 
 #include <string>
 #include "../extern/beatsaber-hook/shared/utils/typedefs.h"
@@ -84,5 +83,3 @@ namespace CustomUI {
             bool create();
     };
 } // namespace CustomUI
-
-#endif /* CUSTOMUI_DEFINED */
