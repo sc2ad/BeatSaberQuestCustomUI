@@ -1,0 +1,19 @@
+{
+  "sharedDir": "shared",
+  "dependenciesDir": "extern",
+  "info": {
+    "name": "custom-ui",
+    "id": "custom-ui",
+    "version": "0.1.0",
+    "url": null,
+    "additionalData": {}
+  },
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "versionRange": "^0.6.0",
+      "additionalData": {}
+    }
+  ],
+  "additionalData": {}
+}

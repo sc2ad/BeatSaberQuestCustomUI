@@ -44,6 +44,6 @@ out/
 ndkpath.txt
 *.zip
 
-extern/libil2cpp/
-extern/modloader
-
+extern/
+*.backup
+qpm.shared.json

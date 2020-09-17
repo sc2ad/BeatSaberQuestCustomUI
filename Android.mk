@@ -15,25 +15,27 @@
 
 LOCAL_PATH := $(call my-dir)
 TARGET_ARCH_ABI := $(APP_ABI)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := hook
-
 rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
-
-# Build the beatsaber-hook shared library, SPECIFICALLY VERSIONED!
+# Creating prebuilt for dependency: beatsaber-hook - version: 0.6.0
 include $(CLEAR_VARS)
-LOCAL_MODULE	        := bs-hook
-LOCAL_SRC_FILES         := ./extern/libbeatsaber-hook_0_5_8.so
-LOCAL_EXPORT_C_INCLUDES := ./extern/beatsaber-hook/shared/
+LOCAL_MODULE := beatsaber-hook_0_6_0
+LOCAL_EXPORT_C_INCLUDES := extern/beatsaber-hook
+LOCAL_SRC_FILES := extern/libbeatsaber-hook_0_6_0.so
+include $(PREBUILT_SHARED_LIBRARY)
+# Creating prebuilt for dependency: modloader - version: 1.0.2
+include $(CLEAR_VARS)
+LOCAL_MODULE := modloader
+LOCAL_EXPORT_C_INCLUDES := extern/modloader
+LOCAL_SRC_FILES := extern/libmodloader.so
 include $(PREBUILT_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_SHARED_LIBRARIES := bs-hook
-LOCAL_LDLIBS           := -llog
-LOCAL_CFLAGS           := -DVERSION='"0.2.0"' -isystem 'extern/libil2cpp/il2cpp/libil2cpp' -DID='"CustomUI"' -I'./shared' -I'./extern'
-LOCAL_MODULE           := customui
-LOCAL_CPPFLAGS         := -std=c++2a
-LOCAL_C_INCLUDES       := ./include ./src
-LOCAL_SRC_FILES        := $(call rwildcard,src/,*.cpp)
+LOCAL_MODULE := custom-ui_0_1_0
+LOCAL_SRC_FILES := $(call rwildcard,src/,*.cpp)
+LOCAL_SHARED_LIBRARIES += beatsaber-hook_0_6_0
+LOCAL_SHARED_LIBRARIES += modloader
+LOCAL_LDLIBS += -llog
+LOCAL_CFLAGS += -DVERSION='"0.1.0"' -isystem 'extern/libil2cpp/il2cpp/libil2cpp' -DID='"custom-ui"' -I'./shared' -I'./extern'
+LOCAL_CPPFLAGS += -std=c++2a -Wall -Werror -Wno-unused-function
+LOCAL_C_INCLUDES += ./include ./src
 include $(BUILD_SHARED_LIBRARY)
