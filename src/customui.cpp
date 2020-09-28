@@ -19,7 +19,7 @@ using namespace il2cpp_utils;
 #endif
 
 static const Logger& getLogger() {
-    static const Logger logger(ID "|v" VERSION);
+    static const Logger logger(ModInfo{ID, VERSION}, LoggerOptions(false, true));
     return logger;
 }
 
