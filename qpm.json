@@ -6,7 +6,11 @@
     "id": "custom-ui",
     "version": "0.1.2",
     "url": "https://github.com/sc2ad/BeatSaberQuestCustomUI",
-    "additionalData": {}
+    "additionalData": {
+      "branchName": "version-v0.1.2",
+      "soLink": "https://github.com/sc2ad/BeatSaberQuestCustomUI/releases/download/v0.1.2/libcustom-ui_0_1_2.so.so",
+      "debugSoLink": "https://github.com/sc2ad/BeatSaberQuestCustomUI/releases/download/v0.1.2/debug_libcustom-ui_0_1_2.so"
+    }
   },
   "dependencies": [
     {
