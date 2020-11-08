@@ -30,12 +30,12 @@ LOCAL_SRC_FILES := extern/libmodloader.so
 include $(PREBUILT_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := custom-ui
+LOCAL_MODULE := custom-ui_0_1_3
 LOCAL_SRC_FILES := $(call rwildcard,src/,*.cpp)
 LOCAL_SHARED_LIBRARIES += beatsaber-hook_0_8_3
 LOCAL_SHARED_LIBRARIES += modloader
 LOCAL_LDLIBS += -llog
-LOCAL_CFLAGS += -DVERSION='"0.1.0"' -isystem 'extern/libil2cpp/il2cpp/libil2cpp' -DID='"custom-ui"' -I'./shared' -I'./extern'
+LOCAL_CFLAGS += -DVERSION='"0.1.3"' -isystem 'extern/libil2cpp/il2cpp/libil2cpp' -DID='"custom-ui"' -I'./shared' -I'./extern'
 LOCAL_CPPFLAGS += -std=c++2a -Wall -Werror -Wno-unused-function
 LOCAL_C_INCLUDES += ./include ./src
 include $(BUILD_SHARED_LIBRARY)
