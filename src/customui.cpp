@@ -227,7 +227,7 @@ namespace CustomUI {
 
         sendWebRequestObj = RET_0_UNLESS(RunMethod(WWW, "SendWebRequest"));
 
-        auto* action = RET_0_UNLESS(MakeAction(method, 0, this, textureWebRequestComplete));
+        auto* action = RET_0_UNLESS(MakeDelegate(method, 0, this, textureWebRequestComplete));
         RET_0_UNLESS(RunMethod(sendWebRequestObj, method, action));
 
         // Uncomment this to watch the progress for debugging purposes (backtracks a lot):
